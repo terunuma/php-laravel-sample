@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
 </head>
 <body>
 	<span>mobile</span>
