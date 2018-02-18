@@ -1,0 +1,55 @@
+.p-header {
+    background: @bg-white;
+}
+
+.p-header-contents {
+    display: table;
+    width: @wrapper-width;
+    margin: 0 auto;
+    padding: 10px 0;
+    .p-header-contents__item {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.p-header-nav {
+    .p-header-nav__item {
+        display: inline-block;
+        padding: 0 6px;
+        border-right: 1px solid @black;
+        &:last-child {
+            border-right: 0;
+        }
+    }
+}
+
+.p-header-doclist-badge {
+    display: inline-block;
+    background: @red;
+    color: @white;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px;
+    text-align: center;
+    &:hover {
+        color: @white;
+    }
+}
+
+.p-header-btns {
+    .p-header-btn {
+        background: @red;
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 6px;
+        color: @white;
+        &:hover {
+            color: @white;
+        }
+    }
+}
+.p-header-forget-password {
+	font-size: @fs-s;
+}

@@ -35,6 +35,6 @@ gulp.task('css', function () {
         .pipe(pleeease({
             autoprefixer: {'browsers': ['last 3 versions','ie >= 11','iOS >= 6','Android >= 4.0']}
         }))
-        .pipe(gulp.dest('./public/css/dist/app.css'))
+        .pipe(gulp.dest('./public/css/dist/'))
         .pipe(size({ title: '⛄ ', showFiles: true, gzip: true}));
 });
