@@ -15,7 +15,7 @@
     <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
 </head>
 <body>
-	@include('pc.elements.header')
+    @include('pc.elements.header')
     @yield('content')
 </body>
 </html>
