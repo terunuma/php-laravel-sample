@@ -1,0 +1,2006 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: advertoption; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE advertoption (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    option_name character varying(512) DEFAULT NULL::character varying,
+    price integer
+);
+
+
+ALTER TABLE advertoption OWNER TO sidebizz;
+
+--
+-- Name: advertoption_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE advertoption_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE advertoption_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: advertoption_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE advertoption_plimary_seq OWNED BY advertoption.plimary;
+
+
+--
+-- Name: advertplantemplate; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE advertplantemplate (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    plan_name character varying(4096) DEFAULT NULL::character varying,
+    media_yusen_int bigint,
+    busyo_sentaku_max bigint,
+    free_max_cont bigint,
+    commit_price bigint,
+    yonsyuu_keisai_ryoukin bigint,
+    tickets bigint,
+    is_free_plan bigint
+);
+
+
+ALTER TABLE advertplantemplate OWNER TO sidebizz;
+
+--
+-- Name: advertplantemplate_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE advertplantemplate_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE advertplantemplate_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: advertplantemplate_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE advertplantemplate_plimary_seq OWNED BY advertplantemplate.plimary;
+
+
+--
+-- Name: agreedocument; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE agreedocument (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    conpany_id bigint NOT NULL,
+    agreement_filenamee character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE agreedocument OWNER TO sidebizz;
+
+--
+-- Name: agreedocument_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE agreedocument_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE agreedocument_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: agreedocument_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE agreedocument_plimary_seq OWNED BY agreedocument.plimary;
+
+
+--
+-- Name: ariainfo; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE ariainfo (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    chihou character varying(512) DEFAULT NULL::character varying,
+    pref_name character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE ariainfo OWNER TO sidebizz;
+
+--
+-- Name: ariainfo_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE ariainfo_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE ariainfo_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: ariainfo_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE ariainfo_plimary_seq OWNED BY ariainfo.plimary;
+
+
+--
+-- Name: bissinesstokucyou; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE bissinesstokucyou (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    tokucyou character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE bissinesstokucyou OWNER TO sidebizz;
+
+--
+-- Name: bissinesstokucyou_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE bissinesstokucyou_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE bissinesstokucyou_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: bissinesstokucyou_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE bissinesstokucyou_plimary_seq OWNED BY bissinesstokucyou.plimary;
+
+
+--
+-- Name: busyoinfo; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE busyoinfo (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    busyoinfo character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE busyoinfo OWNER TO sidebizz;
+
+--
+-- Name: busyoinfo_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE busyoinfo_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE busyoinfo_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: busyoinfo_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE busyoinfo_plimary_seq OWNED BY busyoinfo.plimary;
+
+
+--
+-- Name: commoditiy; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE commoditiy (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    advert_id bigint,
+    syouzaimei character varying(4096) DEFAULT NULL::character varying,
+    oomidashi character varying(4096) DEFAULT NULL::character varying,
+    bissiness_tokucyou_id character varying(512) DEFAULT NULL::character varying,
+    main1_midashi character varying(4096) DEFAULT NULL::character varying,
+    main1_honbun character varying(65535) DEFAULT NULL::character varying,
+    main1_filename character varying(512) DEFAULT NULL::character varying,
+    main2_midashi character varying(4096) DEFAULT NULL::character varying,
+    main2_honbun character varying(65535) DEFAULT NULL::character varying,
+    main2_filename character varying(512) DEFAULT NULL::character varying,
+    main3_midashi character varying(4096) DEFAULT NULL::character varying,
+    main3_honbun character varying(65535) DEFAULT NULL::character varying,
+    main3_filename character varying(512) DEFAULT NULL::character varying,
+    osusume_point character varying(65535) DEFAULT NULL::character varying,
+    bisyuu_taisyou character varying(65535) DEFAULT NULL::character varying,
+    sales_talk_rei character varying(65535) DEFAULT NULL::character varying,
+    match_busyo_id character varying(512) DEFAULT NULL::character varying,
+    match_gyousyu_id character varying(512) DEFAULT NULL::character varying,
+    match_aria_id character varying(512) DEFAULT NULL::character varying,
+    syoukai_tesuuryou_id bigint NOT NULL,
+    bisiness_syokihiyou character varying(65535) DEFAULT NULL::character varying,
+    kaiinn_heno_messages character varying(65535) DEFAULT NULL::character varying,
+    tousyani_tsuite_honbun character varying(65535) DEFAULT NULL::character varying,
+    company_name character varying(512) DEFAULT NULL::character varying,
+    company_adress character varying(512) DEFAULT NULL::character varying,
+    company_tel character varying(512) DEFAULT NULL::character varying,
+    company_mail_adress character varying(512) DEFAULT NULL::character varying,
+    company_presitent character varying(4096) DEFAULT NULL::character varying,
+    company_barthday character varying(512) DEFAULT NULL::character varying,
+    company_url character varying(512) DEFAULT NULL::character varying,
+    company_jigyou_naiyou character varying(4096) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now(),
+    shinsa_status bigint,
+    shinsa_ok_date timestamp without time zone,
+    view_score bigint,
+    tesuusyou_taikei_id bigint,
+    document_filename character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE commoditiy OWNER TO sidebizz;
+
+--
+-- Name: commoditiy_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE commoditiy_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE commoditiy_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: commoditiy_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE commoditiy_plimary_seq OWNED BY commoditiy.plimary;
+
+
+--
+-- Name: consignerregistreserve; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE consignerregistreserve (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    conpany_id bigint,
+    uuid character varying(4096) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE consignerregistreserve OWNER TO sidebizz;
+
+--
+-- Name: consignerregistreserve_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE consignerregistreserve_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE consignerregistreserve_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: consignerregistreserve_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE consignerregistreserve_plimary_seq OWNED BY consignerregistreserve.plimary;
+
+
+--
+-- Name: consignoragreementmanage; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE consignoragreementmanage (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    conpany_id bigint,
+    plan_name character varying(4096) DEFAULT NULL::character varying,
+    media_yusen_int bigint,
+    busyo_sentaku_max bigint,
+    agree_start_date timestamp without time zone,
+    free_max_cont bigint,
+    commit_price bigint,
+    yonsyuu_keisai_ryoukin bigint,
+    tickets bigint,
+    add_date timestamp without time zone,
+    is_free_plan bigint,
+    commodity_id bigint,
+    touroku_date timestamp without time zone DEFAULT now(),
+    otameshi_end_date timestamp without time zone,
+    advert_status bigint,
+    plan_option character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE consignoragreementmanage OWNER TO sidebizz;
+
+--
+-- Name: consignoragreementmanage_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE consignoragreementmanage_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE consignoragreementmanage_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: consignoragreementmanage_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE consignoragreementmanage_plimary_seq OWNED BY consignoragreementmanage.plimary;
+
+
+--
+-- Name: consignorinfomation; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE consignorinfomation (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    prefix character varying(512) NOT NULL,
+    company_name character varying(4096) DEFAULT NULL::character varying,
+    company_adress character varying(4096) DEFAULT NULL::character varying,
+    tantou_name_mei character varying(4096) DEFAULT NULL::character varying,
+    tantou_name_sei character varying(4096) DEFAULT NULL::character varying,
+    tantou_sei_kana character varying(4096) DEFAULT NULL::character varying,
+    tantou_mei_kana character varying(4096) DEFAULT NULL::character varying,
+    tantou_busyo character varying(4096) DEFAULT NULL::character varying,
+    tantou_pason character varying(4096) DEFAULT NULL::character varying,
+    company_tel character varying(512) DEFAULT NULL::character varying,
+    mail_adress character varying(512) DEFAULT NULL::character varying,
+    change_mail_adress character varying(512) DEFAULT NULL::character varying,
+    company_url character varying(512) DEFAULT NULL::character varying,
+    password character varying(4096) DEFAULT NULL::character varying,
+    seikyusaki_corpname character varying(4096) DEFAULT NULL::character varying,
+    seikyusaki_tantou_sei character varying(4096) DEFAULT NULL::character varying,
+    seikyusaki_tantou_mei character varying(4096) DEFAULT NULL::character varying,
+    seikyusaki_tantou_busyo character varying(4096) DEFAULT NULL::character varying,
+    seikyusaki_tantou_yakusyoku character varying(4096) DEFAULT NULL::character varying,
+    seikyusaki_corptel character varying(4096) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL,
+    seikyusaki_company_adress character varying(4096) DEFAULT NULL::character varying,
+    yuubin_bangou character varying(64) DEFAULT NULL::character varying,
+    add_staff_id integer DEFAULT 1 NOT NULL
+);
+
+
+ALTER TABLE consignorinfomation OWNER TO sidebizz;
+
+--
+-- Name: consignorinfomation_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE consignorinfomation_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE consignorinfomation_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: consignorinfomation_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE consignorinfomation_plimary_seq OWNED BY consignorinfomation.plimary;
+
+
+--
+-- Name: contentsviewrecord; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE contentsviewrecord (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    contractor_info_id bigint NOT NULL,
+    commoditiy_id bigint NOT NULL,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE contentsviewrecord OWNER TO sidebizz;
+
+--
+-- Name: contentsviewrecord_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE contentsviewrecord_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE contentsviewrecord_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: contentsviewrecord_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE contentsviewrecord_plimary_seq OWNED BY contentsviewrecord.plimary;
+
+
+--
+-- Name: contractapplication; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE contractapplication (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    commoditiy_id bigint,
+    contractor_info_id bigint,
+    status bigint,
+    keiyaku_syubetsu bigint,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL,
+    keiyaku_docs_ids character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE contractapplication OWNER TO sidebizz;
+
+--
+-- Name: contractapplication_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE contractapplication_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE contractapplication_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: contractapplication_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE contractapplication_plimary_seq OWNED BY contractapplication.plimary;
+
+
+--
+-- Name: contractapplog; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE contractapplog (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    contract_applications_id bigint NOT NULL,
+    status bigint,
+    keiyaku_syubetsu bigint,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE contractapplog OWNER TO sidebizz;
+
+--
+-- Name: contractapplog_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE contractapplog_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE contractapplog_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: contractapplog_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE contractapplog_plimary_seq OWNED BY contractapplog.plimary;
+
+
+--
+-- Name: contracterregistreserve; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE contracterregistreserve (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    contractorinfomation_id bigint,
+    uuid character varying(4096) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE contracterregistreserve OWNER TO sidebizz;
+
+--
+-- Name: contracterregistreserve_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE contracterregistreserve_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE contracterregistreserve_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: contracterregistreserve_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE contracterregistreserve_plimary_seq OWNED BY contracterregistreserve.plimary;
+
+
+--
+-- Name: contractorinfomation; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE contractorinfomation (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    prefix character varying(512) NOT NULL,
+    company_name character varying(4096) DEFAULT NULL::character varying,
+    company_adress character varying(4096) DEFAULT NULL::character varying,
+    tantou_name_mei character varying(4096) DEFAULT NULL::character varying,
+    tantou_name_sei character varying(4096) DEFAULT NULL::character varying,
+    tantou_sei_kana character varying(4096) DEFAULT NULL::character varying,
+    tantou_mei_kana character varying(4096) DEFAULT NULL::character varying,
+    tantou_busyo character varying(4096) DEFAULT NULL::character varying,
+    tantou_pason character varying(4096) DEFAULT NULL::character varying,
+    company_tel character varying(512) DEFAULT NULL::character varying,
+    mail_adress character varying(512) NOT NULL,
+    change_mail_adress character varying(512) DEFAULT NULL::character varying,
+    company_url character varying(512) DEFAULT NULL::character varying,
+    password character varying(4096) DEFAULT NULL::character varying,
+    match_busyo_id character varying(512) DEFAULT NULL::character varying,
+    match_gyousyu_id character varying(512) DEFAULT NULL::character varying,
+    match_aria_id character varying(512) DEFAULT NULL::character varying,
+    furikomi_bankname character varying(4096) DEFAULT NULL::character varying,
+    furikomi_banksyubetsu character varying(4096) DEFAULT NULL::character varying,
+    furikomi_bankshitenmei character varying(4096) DEFAULT NULL::character varying,
+    furikomi_banknumber character varying(4096) DEFAULT NULL::character varying,
+    furikomi_bankmeigi character varying(4096) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL,
+    yuubin_bangou character varying(64) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE contractorinfomation OWNER TO sidebizz;
+
+--
+-- Name: contractorinfomation_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE contractorinfomation_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE contractorinfomation_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: contractorinfomation_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE contractorinfomation_plimary_seq OWNED BY contractorinfomation.plimary;
+
+
+--
+-- Name: downloadbox; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE downloadbox (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    contractor_info_id bigint NOT NULL,
+    commoditiy_id bigint NOT NULL,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE downloadbox OWNER TO sidebizz;
+
+--
+-- Name: downloadbox_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE downloadbox_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE downloadbox_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: downloadbox_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE downloadbox_plimary_seq OWNED BY downloadbox.plimary;
+
+
+--
+-- Name: downloaddocument; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE downloaddocument (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    commoditiy_id bigint,
+    document_filename character varying(4096) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE downloaddocument OWNER TO sidebizz;
+
+--
+-- Name: downloaddocument_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE downloaddocument_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE downloaddocument_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: downloaddocument_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE downloaddocument_plimary_seq OWNED BY downloaddocument.plimary;
+
+
+--
+-- Name: gyousyugyoutaiinfo; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE gyousyugyoutaiinfo (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    gyousyu_gyoutaimei character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE gyousyugyoutaiinfo OWNER TO sidebizz;
+
+--
+-- Name: gyousyugyoutaiinfo_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE gyousyugyoutaiinfo_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE gyousyugyoutaiinfo_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: gyousyugyoutaiinfo_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE gyousyugyoutaiinfo_plimary_seq OWNED BY gyousyugyoutaiinfo.plimary;
+
+
+--
+-- Name: introductioniformation; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE introductioniformation (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    commoditiy_id bigint,
+    status character varying(512) DEFAULT NULL::character varying,
+    contract_applications_id bigint NOT NULL,
+    company_name character varying(4096) DEFAULT NULL::character varying,
+    company_adress character varying(4096) DEFAULT NULL::character varying,
+    tantou_name_mei character varying(4096) DEFAULT NULL::character varying,
+    tantou_name_sei character varying(4096) DEFAULT NULL::character varying,
+    tantou_sei_kana character varying(4096) DEFAULT NULL::character varying,
+    tantou_mei_kana character varying(4096) DEFAULT NULL::character varying,
+    busyoindo_id character varying(4096) DEFAULT NULL::character varying,
+    company_tel character varying(512) DEFAULT NULL::character varying,
+    mail_adress character varying(512) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE introductioniformation OWNER TO sidebizz;
+
+--
+-- Name: introductioniformation_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE introductioniformation_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE introductioniformation_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: introductioniformation_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE introductioniformation_plimary_seq OWNED BY introductioniformation.plimary;
+
+
+--
+-- Name: introductioninfolog; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE introductioninfolog (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    intro_ifo_id bigint NOT NULL,
+    status character varying(512) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE introductioninfolog OWNER TO sidebizz;
+
+--
+-- Name: introductioninfolog_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE introductioninfolog_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE introductioninfolog_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: introductioninfolog_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE introductioninfolog_plimary_seq OWNED BY introductioninfolog.plimary;
+
+
+--
+-- Name: pasoninfo; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE pasoninfo (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    pason character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE pasoninfo OWNER TO sidebizz;
+
+--
+-- Name: pasoninfo_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE pasoninfo_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE pasoninfo_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: pasoninfo_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE pasoninfo_plimary_seq OWNED BY pasoninfo.plimary;
+
+
+--
+-- Name: successfeeinfo; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE successfeeinfo (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    success_fee character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE successfeeinfo OWNER TO sidebizz;
+
+--
+-- Name: successfeeinfo_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE successfeeinfo_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE successfeeinfo_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: successfeeinfo_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE successfeeinfo_plimary_seq OWNED BY successfeeinfo.plimary;
+
+
+--
+-- Name: tesuusyoutaikei; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE tesuusyoutaikei (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    taikei character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE tesuusyoutaikei OWNER TO sidebizz;
+
+--
+-- Name: tesuusyoutaikei_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE tesuusyoutaikei_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE tesuusyoutaikei_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: tesuusyoutaikei_plimary_seq1; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE tesuusyoutaikei_plimary_seq1
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE tesuusyoutaikei_plimary_seq1 OWNER TO sidebizz;
+
+--
+-- Name: tesuusyoutaikei_plimary_seq1; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE tesuusyoutaikei_plimary_seq1 OWNED BY tesuusyoutaikei.plimary;
+
+
+--
+-- Name: viewcommoditiy; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE viewcommoditiy (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    commoditiy_id bigint,
+    syouzaimei character varying(4096) DEFAULT NULL::character varying,
+    oomidashi character varying(4096) DEFAULT NULL::character varying,
+    bissiness_tokucyou_id character varying(512) DEFAULT NULL::character varying,
+    main1_midashi character varying(4096) DEFAULT NULL::character varying,
+    main1_honbun character varying(65535) DEFAULT NULL::character varying,
+    main1_filename character varying(512) DEFAULT NULL::character varying,
+    main2_midashi character varying(4096) DEFAULT NULL::character varying,
+    main2_honbun character varying(65535) DEFAULT NULL::character varying,
+    main2_filename character varying(512) DEFAULT NULL::character varying,
+    main3_midashi character varying(4096) DEFAULT NULL::character varying,
+    main3_honbun character varying(65535) DEFAULT NULL::character varying,
+    main3_filename character varying(512) DEFAULT NULL::character varying,
+    osusume_point character varying(65535) DEFAULT NULL::character varying,
+    bisyuu_taisyou character varying(65535) DEFAULT NULL::character varying,
+    sales_talk_rei character varying(65535) DEFAULT NULL::character varying,
+    match_busyo_id character varying(512) DEFAULT NULL::character varying,
+    match_gyousyu_id character varying(512) DEFAULT NULL::character varying,
+    match_aria_id character varying(512) DEFAULT NULL::character varying,
+    syoukai_tesuuryou_id bigint NOT NULL,
+    bisiness_syokihiyou character varying(65535) DEFAULT NULL::character varying,
+    kaiinn_heno_messages character varying(65535) DEFAULT NULL::character varying,
+    tousyani_tsuite_honbun character varying(65535) DEFAULT NULL::character varying,
+    company_name character varying(512) DEFAULT NULL::character varying,
+    company_adress character varying(512) DEFAULT NULL::character varying,
+    company_tel character varying(512) DEFAULT NULL::character varying,
+    company_mail_adress character varying(512) DEFAULT NULL::character varying,
+    company_presitent character varying(4096) DEFAULT NULL::character varying,
+    company_barthday character varying(512) DEFAULT NULL::character varying,
+    company_url character varying(512) DEFAULT NULL::character varying,
+    company_jigyou_naiyou character varying(4096) DEFAULT NULL::character varying,
+    touroku_date timestamp without time zone DEFAULT now(),
+    document_filename character varying(512) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE viewcommoditiy OWNER TO sidebizz;
+
+--
+-- Name: viewcommoditiy_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE viewcommoditiy_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE viewcommoditiy_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: viewcommoditiy_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE viewcommoditiy_plimary_seq OWNED BY viewcommoditiy.plimary;
+
+
+--
+-- Name: webxstaff; Type: TABLE; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+CREATE TABLE webxstaff (
+    plimary integer NOT NULL,
+    id bigint DEFAULT (-1) NOT NULL,
+    staff_name character varying(4096) DEFAULT NULL::character varying,
+    ex1 character varying(4096) DEFAULT NULL::character varying,
+    ex2 character varying(4096) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE webxstaff OWNER TO sidebizz;
+
+--
+-- Name: webxstaff_plimary_seq; Type: SEQUENCE; Schema: public; Owner: sidebizz
+--
+
+CREATE SEQUENCE webxstaff_plimary_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE webxstaff_plimary_seq OWNER TO sidebizz;
+
+--
+-- Name: webxstaff_plimary_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sidebizz
+--
+
+ALTER SEQUENCE webxstaff_plimary_seq OWNED BY webxstaff.plimary;
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY advertoption ALTER COLUMN plimary SET DEFAULT nextval('advertoption_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY advertplantemplate ALTER COLUMN plimary SET DEFAULT nextval('advertplantemplate_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY agreedocument ALTER COLUMN plimary SET DEFAULT nextval('agreedocument_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY ariainfo ALTER COLUMN plimary SET DEFAULT nextval('ariainfo_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY bissinesstokucyou ALTER COLUMN plimary SET DEFAULT nextval('bissinesstokucyou_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY busyoinfo ALTER COLUMN plimary SET DEFAULT nextval('busyoinfo_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY commoditiy ALTER COLUMN plimary SET DEFAULT nextval('commoditiy_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY consignerregistreserve ALTER COLUMN plimary SET DEFAULT nextval('consignerregistreserve_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY consignoragreementmanage ALTER COLUMN plimary SET DEFAULT nextval('consignoragreementmanage_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY consignorinfomation ALTER COLUMN plimary SET DEFAULT nextval('consignorinfomation_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY contentsviewrecord ALTER COLUMN plimary SET DEFAULT nextval('contentsviewrecord_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY contractapplication ALTER COLUMN plimary SET DEFAULT nextval('contractapplication_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY contractapplog ALTER COLUMN plimary SET DEFAULT nextval('contractapplog_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY contracterregistreserve ALTER COLUMN plimary SET DEFAULT nextval('contracterregistreserve_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY contractorinfomation ALTER COLUMN plimary SET DEFAULT nextval('contractorinfomation_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY downloadbox ALTER COLUMN plimary SET DEFAULT nextval('downloadbox_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY downloaddocument ALTER COLUMN plimary SET DEFAULT nextval('downloaddocument_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY gyousyugyoutaiinfo ALTER COLUMN plimary SET DEFAULT nextval('gyousyugyoutaiinfo_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY introductioniformation ALTER COLUMN plimary SET DEFAULT nextval('introductioniformation_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY introductioninfolog ALTER COLUMN plimary SET DEFAULT nextval('introductioninfolog_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY pasoninfo ALTER COLUMN plimary SET DEFAULT nextval('pasoninfo_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY successfeeinfo ALTER COLUMN plimary SET DEFAULT nextval('successfeeinfo_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY tesuusyoutaikei ALTER COLUMN plimary SET DEFAULT nextval('tesuusyoutaikei_plimary_seq1'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY viewcommoditiy ALTER COLUMN plimary SET DEFAULT nextval('viewcommoditiy_plimary_seq'::regclass);
+
+
+--
+-- Name: plimary; Type: DEFAULT; Schema: public; Owner: sidebizz
+--
+
+ALTER TABLE ONLY webxstaff ALTER COLUMN plimary SET DEFAULT nextval('webxstaff_plimary_seq'::regclass);
+
+
+--
+-- Data for Name: advertoption; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY advertoption (plimary, id, option_name, price) FROM stdin;
+1	1	スカウト	0
+\.
+
+
+--
+-- Name: advertoption_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('advertoption_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: advertplantemplate; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY advertplantemplate (plimary, id, plan_name, media_yusen_int, busyo_sentaku_max, free_max_cont, commit_price, yonsyuu_keisai_ryoukin, tickets, is_free_plan) FROM stdin;
+1	1	SB3	23	3	\N	\N	20000	\N	\N
+\.
+
+
+--
+-- Name: advertplantemplate_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('advertplantemplate_plimary_seq', 1, true);
+
+
+--
+-- Data for Name: agreedocument; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY agreedocument (plimary, id, conpany_id, agreement_filenamee) FROM stdin;
+\.
+
+
+--
+-- Name: agreedocument_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('agreedocument_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: ariainfo; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY ariainfo (plimary, id, chihou, pref_name) FROM stdin;
+52	52	関東	栃木
+53	53	関東	群馬
+54	54	関東	茨城
+55	55	関東	山梨
+88	88	海外	海外
+87	87	九州・沖縄	沖縄
+86	86	九州・沖縄	鹿児島
+85	85	九州・沖縄	宮崎
+84	84	九州・沖縄	熊本
+83	83	九州・沖縄	大分
+82	82	九州・沖縄	長崎
+81	81	九州・沖縄	佐賀
+80	80	九州・沖縄	福岡
+79	79	中国・四国	高知
+78	78	中国・四国	愛媛
+77	77	中国・四国	香川
+76	76	中国・四国	徳島
+75	75	中国・四国	山口
+74	74	中国・四国	広島
+73	73	中国・四国	岡山
+72	72	中国・四国	島根
+71	71	中国・四国	鳥取
+70	70	関西	和歌山
+69	69	関西	滋賀
+68	68	関西	奈良
+67	67	関西	京都
+66	66	関西	兵庫
+65	65	関西	大阪
+64	64	北信越	長野
+63	63	北信越	福井
+62	62	北信越	石川
+61	61	北信越	富山
+60	60	北信越	新潟
+59	59	東海	三重
+58	58	東海	静岡
+57	57	東海	岐阜
+56	56	東海	愛知
+42	42	北海道・東北	北海道
+43	43	北海道・東北	青森
+44	44	北海道・東北	岩手
+45	45	北海道・東北	宮城
+46	46	北海道・東北	秋田
+47	47	北海道・東北	山形
+48	48	北海道・東北	福島
+51	51	関東	千葉
+50	50	関東	埼玉
+49	49	関東	東京
+\.
+
+
+--
+-- Name: ariainfo_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('ariainfo_plimary_seq', 88, true);
+
+
+--
+-- Data for Name: bissinesstokucyou; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY bissinesstokucyou (plimary, id, tokucyou) FROM stdin;
+1	1	副業OK
+2	2	兼業OK
+3	3	複業OK
+4	4	在宅ワークOK
+5	5	サラリーマンの副業
+6	6	簡単な副業
+7	7	副業にオススメ
+8	8	内職
+9	9	高収入
+10	10	ストック（継続）収入
+11	11	スタートアップ
+12	12	B2C商材
+13	13	B2B商材
+14	14	新製品
+15	15	新規事業
+16	16	クロスセルに最適
+17	17	テレアポ
+18	18	隙間時間を活用
+19	19	ネット副業
+20	20	在宅副業
+21	21	女性向けビジネス
+22	22	女性の副業
+23	23	主婦の副業
+24	24	シニア向けビジネス
+25	25	法人歓迎
+26	26	経験を生かす
+27	27	初期費用ゼロ
+28	28	社会貢献
+29	29	独立
+30	30	起業
+31	31	開業
+\.
+
+
+--
+-- Name: bissinesstokucyou_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('bissinesstokucyou_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: busyoinfo; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY busyoinfo (plimary, id, busyoinfo) FROM stdin;
+1	1	経営
+2	2	社長室
+3	3	秘書室
+4	4	営業推進
+5	5	販売促進/マーケティング
+6	6	情報システム
+7	7	購買/仕入
+8	8	経営企画
+9	9	営業
+10	10	販売
+11	11	総務
+12	12	人事
+13	13	IR/広報
+14	14	経理
+15	15	財務
+16	16	製造/技術
+17	17	管理
+18	18	物流
+19	19	事務
+20	20	法務
+21	21	店舗開発
+22	22	個人/個人宅
+23	23	その他
+\.
+
+
+--
+-- Name: busyoinfo_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('busyoinfo_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: commoditiy; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY commoditiy (plimary, id, advert_id, syouzaimei, oomidashi, bissiness_tokucyou_id, main1_midashi, main1_honbun, main1_filename, main2_midashi, main2_honbun, main2_filename, main3_midashi, main3_honbun, main3_filename, osusume_point, bisyuu_taisyou, sales_talk_rei, match_busyo_id, match_gyousyu_id, match_aria_id, syoukai_tesuuryou_id, bisiness_syokihiyou, kaiinn_heno_messages, tousyani_tsuite_honbun, company_name, company_adress, company_tel, company_mail_adress, company_presitent, company_barthday, company_url, company_jigyou_naiyou, touroku_date, shinsa_status, shinsa_ok_date, view_score, tesuusyou_taikei_id, document_filename) FROM stdin;
+20	20	10	保存テスト	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	NTT代理店デジコム	千葉県船橋市習志野台	06-0000-0099	\N	\N	\N	\N	\N	2018-02-15 18:16:36.509598	\N	\N	\N	\N	\N
+12	12	2	【神商材】秒速30億円の爆風!!儲かる商材 EXE(エクゼ)	お金の持ってそうな老人、情弱者を紹介してください！！！！！！！！	<>1<>12<>	今までの負け組人生とさよなら。あなたをお金持ちに導きます!!	不労de分配シリーズの最終章となるこの商材、負け組ゼロ宣言を強く掲げているだけあって、本当に全く何もしなくても全員に分配金が配当されるというとんでもない商材。\r\n購入者全員に配当があるなんてはじめは疑ってましたが、シリーズ化されている実績を信じて購入してみました。結果から言うと全く何もしない人でも間違いなく購入金額以上の収入は得られます。 特許申請するだけあってとにかくビジネスモデルが凄いです。\r\nただ、全く何もしない人とそうでない人では分配金を貰える回数が変わってくるため、高収入を目指す方は、販売者の指示に従い作業をがんばってみて下さい。	20130126062242117.jpg	現在あらゆるASPで単独１位街道爆進中！！！！！！！！！！！！	１０分の作業をたった３回行うだけで日給らくらく１０万超え！\r\n月給１００万超え１０分の作業をたった３回行うだけで日給らくらく１０万超え！\r\n月給１００万超えユーザー続出の激アツ商材！\r\n【限定特典・総額１００万円相当の４００種類以上の再販売商材付＆全額返金制度＆完全無料のメールサポート付】１０分の作業をたった３回行うだけで日給らくらく１０万超え！\r\n月給１００万超えユーザー続出の激アツ商材！\r\n【限定特典・総額１００万円相当の４００種類以上の再販売商材付＆全額返金制度＆完全無料のメールサポート付】！\r\n【限定特典・総額１０	db4740b5.jpg	商材購入を迷われている皆様へ商材購入を迷われている皆様へ皆様へ	どの情報商材も儲けがなければ返金可能となっておりますし、付録特典だけでも十分価値はあるので、 もし購入した後でやっぱダメじゃん... と思った方は特典だけもらって返金 してもらうのも良いと思います。\r\nただ購入すればわかりますが、どの商材もかなり優良な情報商材で、 「悪徳商材撲滅」 を掲げているインフォスタイルでも紹介されている商材です。どの情報商材も儲けがなければ返金可能となっておりますし、付録特典だけでも十分価値はあるので、 もし購入した後でやっぱダメじゃん... と思った方は特典だけもらって返金 してもらうのも良いと思います。\r\nただ購入すればわかりますが、どの商材もかなり優良な情報商材で、 「悪徳商材撲滅」 を掲げているインフォスタイルでも紹介されている商材です。	b-03.jpg	独立・開業・起業を通じてチャンスを掴みたいと考えているみなさまのための情報サイトです。\r\n「フランチャイズ」研修制度やマニュアルの配布などによって開業の支援を行うことを言います。フランチャイズオーナーは、確率されたサービスを使う権限をもらい、フランチャイズ本部にロイヤリティとして対価を支払います。	情弱、老人、女子供内装工事費用を約50万円～150万円と見積もった場合、\r\n開業時のその他出店経費合計は115万円～280万円となるため、\r\n加盟金と併せても最小215万円の初期費用で\r\n開業ができることになります\r\n（※その他出店経費は、出店場所等により変動あり）	私自身も数々の情報商材を購入したり高額塾に参加した経験から、\r\n「楽して稼ごうと思えば思うほど稼げない」\r\nというのは1つの真理だと思うわけです。\r\nもちろんその“楽”が、\r\n「単純作業をシステムで自動化する」\r\nとか\r\n「冗長な手順を創意工夫によって簡略化する」\r\nとかそういったポジティブな方向性だったら話は別です。\r\nしかし、	<>2<>8<>23<>	<>8<>15<>	<>61<>51<>52<>	5	開業時に必要な初期費用資金として、\r\n加盟金等のお支払パターンの一例をご紹介します。\r\n加盟金として50万円、ブランド使用料25万円、\r\n研修費25万円（開店前後の現地4日間研修＋回数制限なしの既存店研修）で、\r\n加盟時の費用合計は100万円となります。\r\n物件取得費は地代相場によりますが、\r\n厨房什器購入代金を約65万円～130万円、\r\n厨房備品や消耗品等は全て買掛扱いなので0円、	弊社は1995年の8月に創業し、最初は広告や販促の企画・制作が主な業務でした。インターネットという神風が吹き、小予算でネット媒体の懸賞ページ（アタル）という販促ＨＰを立ち上げ、事業のメインとすべく努力してまいりました。\r\n。\r\n\r\nどうか皆様のより一層のご支援とご指導を切にお願い申し上げます。\r\n\r\n（2017年5月31日代表取締役会長退任・同年6月1日顧問就任）	スタンダードメタル工業の油膜軸受および船尾管軸受は、日本国内はもとより、アジア全域に数多くの納入実績を誇り、その品質・技術は揺るぎない評価を頂いています。\r\n特にPW法（プラズマアーク溶接）による油膜軸受は、独自の工法を駆使し、他の追従を許しません。\r\nスタンダードメタル工業でなければできないものを創り続け、品質・技術を磨き、我が国のものづくりに貢献したいと願っております。	NTT代理店デジコム	大阪市中央区南久宝寺町 2丁目 6-7	0667674451	\N	宮田 忠雄	2018年06月	http://www.so-ten.jp	祭事販売企画業	2018-02-08 10:12:02.898838	\N	\N	\N	3	履歴フォーマット.zip
+\.
+
+
+--
+-- Name: commoditiy_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('commoditiy_plimary_seq', 20, true);
+
+
+--
+-- Data for Name: consignerregistreserve; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY consignerregistreserve (plimary, id, conpany_id, uuid, touroku_date) FROM stdin;
+12	12	10	c169ec7a2f2b43ec861ab61fae950a3b	2018-02-08 12:30:06.732504
+13	13	3	336bc190e93c4056b20cb1c18c7f74f6	2018-02-19 18:48:32.266026
+\.
+
+
+--
+-- Name: consignerregistreserve_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('consignerregistreserve_plimary_seq', 13, true);
+
+
+--
+-- Data for Name: consignoragreementmanage; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY consignoragreementmanage (plimary, id, conpany_id, plan_name, media_yusen_int, busyo_sentaku_max, agree_start_date, free_max_cont, commit_price, yonsyuu_keisai_ryoukin, tickets, add_date, is_free_plan, commodity_id, touroku_date, otameshi_end_date, advert_status, plan_option) FROM stdin;
+10	10	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	2018-02-15 18:16:36.506789	\N	\N	\N
+2	2	2	SB3	23	3	2018-06-01 00:00:00	\N	\N	20000	\N	\N	\N	12	2018-02-19 17:06:43	2018-09-27 00:00:00	0	\N
+\.
+
+
+--
+-- Name: consignoragreementmanage_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('consignoragreementmanage_plimary_seq', 10, true);
+
+
+--
+-- Data for Name: consignorinfomation; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY consignorinfomation (plimary, id, prefix, company_name, company_adress, tantou_name_mei, tantou_name_sei, tantou_sei_kana, tantou_mei_kana, tantou_busyo, tantou_pason, company_tel, mail_adress, change_mail_adress, company_url, password, seikyusaki_corpname, seikyusaki_tantou_sei, seikyusaki_tantou_mei, seikyusaki_tantou_busyo, seikyusaki_tantou_yakusyoku, seikyusaki_corptel, touroku_date, seikyusaki_company_adress, yuubin_bangou, add_staff_id) FROM stdin;
+1	1	3MKA2YNG3GR5	ウェブエックス	\N		\N	\N	\N	\N	\N	\N	info@web-x.co.jp	\N	\N	$2y$10$ZTNHHGFq7DclysI5O713..JNjaPg9Hc66qIfzIcrPE.xZnI.Y49Jq	\N	\N	\N	\N	\N	\N	2018-01-30 09:58:21.273231	\N	\N	1
+2	2	F7HZTLK90	NTT代理店デジコム	千葉県船橋市習志野台	康三	豊田	\N	\N	\N	\N	06-0000-0099	toyoda@net-aqua.com	\N	\N	$2y$10$wC..jdrziDr6t3LvkXtiSOkpPnV0i2Oxq4kN0keUlH/aZFMzokNSa	\N	\N	\N	\N	\N	\N	2018-01-30 09:42:01.670614	\N	274-0063	1
+3	3	85D3PY992	丸共岡村	\N	\N	\N	\N	\N	\N	\N	\N	marukyou@mm.jp	\N	\N	\N	\N	\N	\N	\N	\N	\N	2018-02-19 18:48:32.173537	\N	\N	2
+\.
+
+
+--
+-- Name: consignorinfomation_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('consignorinfomation_plimary_seq', 3, true);
+
+
+--
+-- Data for Name: contentsviewrecord; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY contentsviewrecord (plimary, id, contractor_info_id, commoditiy_id, touroku_date) FROM stdin;
+\.
+
+
+--
+-- Name: contentsviewrecord_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('contentsviewrecord_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: contractapplication; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY contractapplication (plimary, id, commoditiy_id, contractor_info_id, status, keiyaku_syubetsu, touroku_date, keiyaku_docs_ids) FROM stdin;
+\.
+
+
+--
+-- Name: contractapplication_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('contractapplication_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: contractapplog; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY contractapplog (plimary, id, contract_applications_id, status, keiyaku_syubetsu, touroku_date) FROM stdin;
+\.
+
+
+--
+-- Name: contractapplog_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('contractapplog_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: contracterregistreserve; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY contracterregistreserve (plimary, id, contractorinfomation_id, uuid, touroku_date) FROM stdin;
+\.
+
+
+--
+-- Name: contracterregistreserve_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('contracterregistreserve_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: contractorinfomation; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY contractorinfomation (plimary, id, prefix, company_name, company_adress, tantou_name_mei, tantou_name_sei, tantou_sei_kana, tantou_mei_kana, tantou_busyo, tantou_pason, company_tel, mail_adress, change_mail_adress, company_url, password, match_busyo_id, match_gyousyu_id, match_aria_id, furikomi_bankname, furikomi_banksyubetsu, furikomi_bankshitenmei, furikomi_banknumber, furikomi_bankmeigi, touroku_date, yuubin_bangou) FROM stdin;
+\.
+
+
+--
+-- Name: contractorinfomation_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('contractorinfomation_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: downloadbox; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY downloadbox (plimary, id, contractor_info_id, commoditiy_id, touroku_date) FROM stdin;
+\.
+
+
+--
+-- Name: downloadbox_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('downloadbox_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: downloaddocument; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY downloaddocument (plimary, id, commoditiy_id, document_filename) FROM stdin;
+\.
+
+
+--
+-- Name: downloaddocument_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('downloaddocument_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: gyousyugyoutaiinfo; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY gyousyugyoutaiinfo (plimary, id, gyousyu_gyoutaimei) FROM stdin;
+1	1	建設
+2	2	不動産
+3	3	士業
+4	4	製造
+5	5	物流/運輸
+6	6	IT/通信
+7	7	卸売/小売
+8	8	金融/保険
+9	9	外食/フード
+10	10	旅行/宿泊
+11	11	美容/健康
+12	12	広告/メディア
+13	13	コンサルティング/マーケティング
+14	14	冠婚葬祭
+15	15	医療/福祉
+16	16	教育/学習支援
+17	17	レジャー/娯楽
+18	18	サービス
+19	19	電気/ガス
+20	20	公営/公務
+21	21	農業/林業
+22	22	漁業
+23	23	鉱業
+24	24	公益法人
+25	25	個人/個人宅
+26	26	その他
+\.
+
+
+--
+-- Name: gyousyugyoutaiinfo_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('gyousyugyoutaiinfo_plimary_seq', 26, true);
+
+
+--
+-- Data for Name: introductioniformation; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY introductioniformation (plimary, id, commoditiy_id, status, contract_applications_id, company_name, company_adress, tantou_name_mei, tantou_name_sei, tantou_sei_kana, tantou_mei_kana, busyoindo_id, company_tel, mail_adress, touroku_date) FROM stdin;
+\.
+
+
+--
+-- Name: introductioniformation_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('introductioniformation_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: introductioninfolog; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY introductioninfolog (plimary, id, intro_ifo_id, status, touroku_date) FROM stdin;
+\.
+
+
+--
+-- Name: introductioninfolog_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('introductioninfolog_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: pasoninfo; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY pasoninfo (plimary, id, pason) FROM stdin;
+1	1	経営者/役員
+3	3	部長
+4	4	次長/課長
+5	5	係長/主任
+6	6	一般社員
+7	7	契約/派遣
+8	8	個人事業主
+9	9	会社員
+10	10	学生
+11	11	家事手伝い
+12	12	フリーター
+13	13	無職
+14	14	その他員
+\.
+
+
+--
+-- Name: pasoninfo_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('pasoninfo_plimary_seq', 14, true);
+
+
+--
+-- Data for Name: successfeeinfo; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY successfeeinfo (plimary, id, success_fee) FROM stdin;
+1	1	1万円以上
+2	2	5万円以上
+3	3	10万円以上
+4	4	30万円以上
+5	5	100万円以上
+6	6	1万円以下
+7	7	5万円以下
+8	8	10万円以下
+9	9	30万円以下
+10	10	100万円以下
+11	11	要相談
+12	12	現物支給
+\.
+
+
+--
+-- Name: successfeeinfo_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('successfeeinfo_plimary_seq', 5, true);
+
+
+--
+-- Data for Name: tesuusyoutaikei; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY tesuusyoutaikei (plimary, id, taikei) FROM stdin;
+1	1	一時収入（フロー収入）
+2	2	継続収入（ストック収入）
+3	3	両方
+\.
+
+
+--
+-- Name: tesuusyoutaikei_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('tesuusyoutaikei_plimary_seq', 1, false);
+
+
+--
+-- Name: tesuusyoutaikei_plimary_seq1; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('tesuusyoutaikei_plimary_seq1', 4, true);
+
+
+--
+-- Data for Name: viewcommoditiy; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY viewcommoditiy (plimary, id, commoditiy_id, syouzaimei, oomidashi, bissiness_tokucyou_id, main1_midashi, main1_honbun, main1_filename, main2_midashi, main2_honbun, main2_filename, main3_midashi, main3_honbun, main3_filename, osusume_point, bisyuu_taisyou, sales_talk_rei, match_busyo_id, match_gyousyu_id, match_aria_id, syoukai_tesuuryou_id, bisiness_syokihiyou, kaiinn_heno_messages, tousyani_tsuite_honbun, company_name, company_adress, company_tel, company_mail_adress, company_presitent, company_barthday, company_url, company_jigyou_naiyou, touroku_date, document_filename) FROM stdin;
+\.
+
+
+--
+-- Name: viewcommoditiy_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('viewcommoditiy_plimary_seq', 1, false);
+
+
+--
+-- Data for Name: webxstaff; Type: TABLE DATA; Schema: public; Owner: sidebizz
+--
+
+COPY webxstaff (plimary, id, staff_name, ex1, ex2) FROM stdin;
+1	1	佐野 雅也	\N	\N
+2	2	岡村 美徳	\N	\N
+\.
+
+
+--
+-- Name: webxstaff_plimary_seq; Type: SEQUENCE SET; Schema: public; Owner: sidebizz
+--
+
+SELECT pg_catalog.setval('webxstaff_plimary_seq', 2, true);
+
+
+--
+-- Name: advertoption_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY advertoption
+    ADD CONSTRAINT advertoption_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: advertplantemplate_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY advertplantemplate
+    ADD CONSTRAINT advertplantemplate_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: agreedocument_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY agreedocument
+    ADD CONSTRAINT agreedocument_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: ariainfo_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY ariainfo
+    ADD CONSTRAINT ariainfo_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: bissinesstokucyou_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY bissinesstokucyou
+    ADD CONSTRAINT bissinesstokucyou_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: busyoinfo_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY busyoinfo
+    ADD CONSTRAINT busyoinfo_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: commoditiy_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY commoditiy
+    ADD CONSTRAINT commoditiy_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: consignerregistreserve_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY consignerregistreserve
+    ADD CONSTRAINT consignerregistreserve_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: consignoragreementmanage_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY consignoragreementmanage
+    ADD CONSTRAINT consignoragreementmanage_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: consignorinfomation_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY consignorinfomation
+    ADD CONSTRAINT consignorinfomation_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: contentsviewrecord_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY contentsviewrecord
+    ADD CONSTRAINT contentsviewrecord_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: contractapplication_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY contractapplication
+    ADD CONSTRAINT contractapplication_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: contractapplog_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY contractapplog
+    ADD CONSTRAINT contractapplog_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: contracterregistreserve_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY contracterregistreserve
+    ADD CONSTRAINT contracterregistreserve_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: contractorinfomation_mail_adress_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY contractorinfomation
+    ADD CONSTRAINT contractorinfomation_mail_adress_key UNIQUE (mail_adress);
+
+
+--
+-- Name: contractorinfomation_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY contractorinfomation
+    ADD CONSTRAINT contractorinfomation_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: downloadbox_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY downloadbox
+    ADD CONSTRAINT downloadbox_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: gyousyugyoutaiinfo_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY gyousyugyoutaiinfo
+    ADD CONSTRAINT gyousyugyoutaiinfo_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: introductioniformation_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY introductioniformation
+    ADD CONSTRAINT introductioniformation_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: introductioninfolog_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY introductioninfolog
+    ADD CONSTRAINT introductioninfolog_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: pasoninfo_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY pasoninfo
+    ADD CONSTRAINT pasoninfo_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: successfeeinfo_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY successfeeinfo
+    ADD CONSTRAINT successfeeinfo_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: tesuusyoutaikei_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY tesuusyoutaikei
+    ADD CONSTRAINT tesuusyoutaikei_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: viewcommoditiy_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY viewcommoditiy
+    ADD CONSTRAINT viewcommoditiy_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: webxstaff_plimary_key; Type: CONSTRAINT; Schema: public; Owner: sidebizz; Tablespace: 
+--
+
+ALTER TABLE ONLY webxstaff
+    ADD CONSTRAINT webxstaff_plimary_key UNIQUE (plimary);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
