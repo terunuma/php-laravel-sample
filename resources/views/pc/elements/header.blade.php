@@ -21,11 +21,18 @@
             </ul>
         </div>
         <div class="p-header-contents__item u-text-right">
-            <div class="p-header-btns">
-                <a href="#" class="p-header-btn">マイページ</a>
-                <a href="#" class="p-header-btn">ログアウト</a>
-            </div>
-            <a href="#" class="p-header-forget-password">パスワードをお忘れの方はコチラ</a>
+            @guest
+                <div class="p-header-btns">
+                    <a href="/register" class="p-header-btn">新規登録</a>
+                    <a href="/login" class="p-header-btn">ログイン</a>
+                </div>
+                <a href="#" class="p-header-forget-password">パスワードをお忘れの方はコチラ</a>
+            @else
+                <div class="p-header-btns">
+                    <a href="#" class="p-header-btn">マイページ</a>
+                    <a href="#" class="p-header-btn">ログアウト</a>
+                </div>
+            @endguest
         </div>
     </div>
 </div>
