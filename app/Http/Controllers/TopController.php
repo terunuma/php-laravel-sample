@@ -7,9 +7,9 @@ use Jenssegers\Agent\Agent;
 
 class TopController extends Controller
 {
-    // public function __construct() {
-    //     $this->middleware('auth');
-    // }
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
     public function index(Request $request) {
         if ( (new Agent())->isMobile() ) {
