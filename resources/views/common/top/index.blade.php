@@ -1,4 +1,4 @@
-<div class="p-wrapper">
+<div class="l-wrapper">
     <a href="/login">ログイン</a>
     <div>
         <a href="{{ route('logout') }}"
