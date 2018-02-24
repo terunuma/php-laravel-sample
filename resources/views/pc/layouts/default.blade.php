@@ -16,6 +16,8 @@
 </head>
 <body>
     @include('pc.elements.header')
+    @include('pc.elements.globalmenu')
     @yield('content')
+    @include('pc.elements.footer')
 </body>
 </html>
