@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -121,7 +122,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -179,6 +180,9 @@ return [
 
         // Additional
         Jenssegers\Agent\AgentServiceProvider::class,
+
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
     ],
 
     /*

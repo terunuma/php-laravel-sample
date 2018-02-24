@@ -12,9 +12,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
 </head>
 <body>
-	<span>PC</span>
+    @include('pc.elements.header')
+    @include('pc.elements.globalmenu')
     @yield('content')
+    @include('pc.elements.footer')
 </body>
 </html>
