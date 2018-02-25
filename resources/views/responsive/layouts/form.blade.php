@@ -14,9 +14,7 @@
     <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('responsive.elements.header')
-    @include('responsive.elements.globalmenu')
+    @include('responsive.elements.headersimple')
     @yield('content')
-    @include('responsive.elements.footer')
 </body>
 </html>

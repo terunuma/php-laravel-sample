@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('responsive.layouts.form')
 
 @section('content')
 <div class="container">
