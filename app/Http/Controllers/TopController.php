@@ -12,10 +12,6 @@ class TopController extends Controller
     // }
 
     public function index(Request $request) {
-        if ( (new Agent())->isMobile() ) {
-            return view('mobile.top.index');
-        } else {
-            return view('pc.top.index');
-        }
+        return view('responsive.top.index');
     }    
 }

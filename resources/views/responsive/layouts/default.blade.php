@@ -15,7 +15,9 @@
     <link href="{{ asset('css/dist/app.css') }}" rel="stylesheet">
 </head>
 <body>
-	<span>mobile</span>
+    @include('responsive.elements.header')
+    @include('responsive.elements.globalmenu')
     @yield('content')
+    @include('responsive.elements.footer')
 </body>
 </html>
