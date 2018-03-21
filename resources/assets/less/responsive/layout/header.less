@@ -22,11 +22,7 @@
         padding: 0 10px;
         > .l-header-nav__item-link {
             font-size: @fs-m;
-            color: @black;
-            text-decoration: underline;
-            &:hover {
-                text-decoration: none;
-            }
+            .mixin-textlink-menu();
         }
     }
 }
@@ -60,4 +56,5 @@
 }
 .l-header-forget-password {
     font-size: @fs-s;
+    .mixin-textlink-menu();
 }

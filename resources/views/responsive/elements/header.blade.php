@@ -38,7 +38,7 @@
                     <a href="/register" class="l-header-btn">新規登録</a>
                     <a href="/login" class="l-header-btn">ログイン</a>
                 </div>
-                <a href="#" class="l-header-forget-password">パスワードをお忘れの方はコチラ</a>
+                <a href="#" class="l-header-forget-password">※パスワードをお忘れの方はコチラ</a>
             @endauth
         </div>
     </div>
