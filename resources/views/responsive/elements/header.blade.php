@@ -3,19 +3,19 @@
         <div class="l-header-contents__item">
             <a href="/"><img src="/assets/images/logo.png" alt="SideBizz" width="189"></a>
         </div>
-        <div class="l-header-contents__item">
+        <div class="l-header-contents__item is-menu">
             <ul class="l-header-nav">
                 <li class="l-header-nav__item">
-                    <a href="#">SideBizzとは</a>
+                    <a href="#" class="l-header-nav__item-link">SideBizzとは</a>
                 </li>
                 <li class="l-header-nav__item">
-                    <a href="#">掲載を検討中の企業様はコチラ</a>
+                    <a href="#" class="l-header-nav__item-link">掲載を検討中の企業様はコチラ</a>
                 </li>
                 <li class="l-header-nav__item">
-                    <a href="#">閲覧履歴</a>
+                    <a href="#" class="l-header-nav__item-link">閲覧履歴</a>
                 </li>
                 <li class="l-header-nav__item">
-                    <a href="#">資料リスト</a>
+                    <a href="#" class="l-header-nav__item-link">資料リスト</a>
                     <a href="#" class="l-header-doclist-badge">6</a>
                 </li>
             </ul>
