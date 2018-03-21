@@ -5,3 +5,11 @@
         text-decoration: none;
     }
 }
+
+.mixin-media-mb (@rules) {
+    @media (max-width: (@min-width-pc - 1)) { @rules(); }
+}
+
+.mixin-media-pc (@rules) {
+    @media (min-width: @min-width-pc) { @rules(); }
+}

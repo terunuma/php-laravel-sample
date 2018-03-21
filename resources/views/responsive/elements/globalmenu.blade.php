@@ -1,4 +1,4 @@
-<div class="p-globalmenu">
+<div class="p-globalmenu u-hide-mb">
     <ul class="p-globalmenu-contents">
         <li class="p-globalmenu-contents__item">
             <a href="#">HOME</a>
