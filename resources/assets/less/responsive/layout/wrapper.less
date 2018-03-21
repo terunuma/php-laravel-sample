@@ -1,7 +1,9 @@
 .l-page-wrapper {
     background-color: @bg-main;
     > .l-wrapper {
-        width: @wrapper-width;
-        margin: 0 auto;
+        .mixin-media-pc({
+            width: @wrapper-width;
+            margin: 0 auto;
+        });
     }
 }
