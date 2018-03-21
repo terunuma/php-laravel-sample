@@ -1,7 +1,7 @@
 <div class="l-header">
     <div class="l-header-contents">
         <div class="l-header-contents__item">
-            <a href="/"><img src="/assets/images/logo.png" alt="SideBizz" width="164"></a>
+            <a href="/"><img src="/assets/images/logo.png" alt="SideBizz" width="189"></a>
         </div>
         <div class="l-header-contents__item">
             <ul class="l-header-nav">
