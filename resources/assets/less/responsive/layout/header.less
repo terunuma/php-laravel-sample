@@ -4,16 +4,37 @@
 
 .l-header-contents {
     display: table;
-    width: @wrapper-width;
-    margin: 0 auto;
-    padding: 14px 0 8px;
+    table-layout: fixed;
+    width: 100%;
+    .mixin-media-pc({
+        width: @wrapper-width;
+        margin: 0 auto;
+        padding: 14px 0 8px;
+    });
     .l-header-contents__item {
         display: table-cell;
         vertical-align: middle;
-        &.is-menu {
-            width: 600px;
+        &.is-logo {
+            width: 40%;
         }
+        .mixin-media-mb({
+            &.is-mb-nav {
+                width: 60%;
+            }
+        });
+        .mixin-media-pc({
+            &.is-pc-nav {
+                width: 600px;
+            }
+        });
     }
+}
+
+.l-header-logo {
+    .mixin-media-mb({
+        width: 100%;
+        padding: 0 4px;
+    });
 }
 
 .l-header-nav {
@@ -43,15 +64,47 @@
 }
 
 .l-header-btns {
-    .l-header-btn {
+    .mixin-media-mb({
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+    });
+    > .l-header-btn {
         background: @red;
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 6px;
         color: @white;
         &:hover {
             color: @white;
         }
+        &.is-menu-btn {
+            background: @gray;
+        }
+        .mixin-media-mb({
+            display: table-cell;
+            border-top: 1px solid @white;
+            border-left: 1px solid @white;
+            border-bottom: 1px solid @white;
+            &:last-child {
+                border-right: 1px solid @white;
+            }
+            > .l-header-btn_inner {
+                position: relative;
+                width: 100%;
+                padding-bottom: 100%;
+                > .l-header-btn_inner-text {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    bottom: 0;
+                    text-align: center;
+                    font-size: @fs-m;
+                }
+            }
+        });
+        .mixin-media-pc({
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+        })
     }
 }
 .l-header-forget-password {
