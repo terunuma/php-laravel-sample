@@ -24,19 +24,19 @@ gulp.task("compress-png", function() {
 
 // スプライトを生成する
 gulp.task('sprite-all', function() {
-    const spriteImgName = 'sprite-all'+ dateStamp +'.png';
+    const spriteImgName = 'all'+ dateStamp +'.png';
     const spriteDir  = './public/assets/images/sprites/';
-    const destDir    = './public/assets/images/';
+    const destDir    = './public/assets/images/sprites-dest/';
     const lessDestDir = './resources/assets/less/common/foundation/';
 
-    del([destDir + spriteImgName]);
+    del([destDir + '*.png']);
 
     const spriteData = gulp.src([spriteDir + "*.png"])
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
         .pipe(spritesmith({
             imgName: spriteImgName, //スプライトの画像
             cssName: '_sprite_variables.less', //生成されるless
-            imgPath: '/assets/images/'+ spriteImgName, //lessに記載されるパス
+            imgPath: '/assets/images/sprites-dest/'+ spriteImgName, //lessに記載されるパス
             padding: 4,
             cssFormat: 'less', //フォーマット
             cssVarMap: function (sprite) {
